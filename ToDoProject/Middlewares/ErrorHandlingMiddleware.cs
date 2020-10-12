@@ -3,7 +3,7 @@ using System;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-using TodoBuisness.Exceptions;
+using TodoBusiness.Exceptions;
 
 namespace ToDoProject.Middlewares
 {

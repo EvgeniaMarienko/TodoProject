@@ -1,6 +1,6 @@
 ﻿using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public interface IProjectService : ICrudService<Project>
     {

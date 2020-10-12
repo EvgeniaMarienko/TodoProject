@@ -1,4 +1,4 @@
-﻿namespace TodoBuisness.Exceptions
+﻿namespace TodoBusiness.Exceptions
 {
     public class EmployeeNotFoundException : NotFoundException
     {

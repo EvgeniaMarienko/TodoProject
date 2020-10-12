@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TodoBuisness.Exceptions;
+using TodoBusiness.Exceptions;
 using TodoDatabase;
 using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public class ProjectService : IProjectService
     {

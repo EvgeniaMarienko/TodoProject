@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace TodoBuisness.Exceptions
+namespace TodoBusiness.Exceptions
 {
     public class TodoException : Exception
     {
