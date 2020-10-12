@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TodoBuisness\TodoBuisness.csproj" />
+    <ProjectReference Include="..\TodoBuisness\TodoBusiness.csproj" />
     <ProjectReference Include="..\TodoDataBase\TodoDataBase.csproj" />
   </ItemGroup>
 
