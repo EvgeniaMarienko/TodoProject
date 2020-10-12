@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoBuisness.Exceptions;
 using TodoBuisness.ViewModels;
-using TodoDataBase;
-using TodoDataBase.Models;
+using TodoDatabase;
+using TodoDatabase.Models;
 
 namespace TodoBuisness.Services
 {
