@@ -7,9 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TodoBusiness.Services;
 using TodoDatabase;
-using TodoApi.Middlewares;
+using TodoWeb.Middlewares;
 
-namespace TodoApi
+namespace TodoWeb
 {
     public class Startup
     {

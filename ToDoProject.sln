@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApi", "ToDoProject\TodoApi.csproj", "{00485419-0BE4-4F8A-A089-04B1206E87D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoWeb", "ToDoProject\TodoWeb.csproj", "{00485419-0BE4-4F8A-A089-04B1206E87D7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoBusiness", "TodoBuisness\TodoBusiness.csproj", "{EB6EF045-18BA-4B70-A136-547B4F846230}"
 EndProject

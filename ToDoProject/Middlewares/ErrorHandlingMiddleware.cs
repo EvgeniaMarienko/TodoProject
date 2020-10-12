@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using TodoBusiness.Exceptions;
 
-namespace TodoApi.Middlewares
+namespace TodoWeb.Middlewares
 {
     public class ErrorHandlingMiddleware
     {

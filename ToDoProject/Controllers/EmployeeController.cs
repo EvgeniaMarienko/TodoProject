@@ -5,7 +5,7 @@ using TodoBusiness.Services;
 using TodoBusiness.ViewModels;
 using TodoDatabase.Models;
 
-namespace TodoApi.Controllers
+namespace TodoWeb.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
