@@ -1,17 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TodoBuisness.Services;
-using TodoDataBase;
 using TodoDataBase.Models;
 
 namespace ToDoProject.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TodoItemController:ControllerBase
+    public class TodoItemController : ControllerBase
     {
         private ITodoItemService _todoItemService;
         public TodoItemController(ITodoItemService context)
@@ -19,7 +16,7 @@ namespace ToDoProject.Controllers
             _todoItemService = context;
         }
 
-        [HttpGet]        
+        [HttpGet]
         public async Task<IEnumerable<TodoItem>> GetAllTasks()
         {
             var result = await _todoItemService.GetAll();

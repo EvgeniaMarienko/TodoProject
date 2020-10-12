@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -8,8 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TodoBuisness.Services;
 using TodoDataBase;
-using TodoDataBase.Models;
-using ToDoProject.Controllers;
 using ToDoProject.Middlewares;
 
 namespace ToDoProject
@@ -27,7 +24,7 @@ namespace ToDoProject
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<TodoContext>(options=>options.UseSqlServer(connection));
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(connection));
             services.AddTransient<ITodoItemService, TodoItemService>();
             services.AddTransient<IProjectService, ProjectService>();
             services.AddTransient<IEmployeeService, EmployeeService>();

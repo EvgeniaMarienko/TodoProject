@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TodoBuisness.Services;
 using TodoDataBase.Models;
@@ -34,7 +32,7 @@ namespace ToDoProject.Controllers
         public async Task<ActionResult> DeleteProject(int id)
         {
             await _projectService.Delete(id);
-            return StatusCode(204);            
+            return StatusCode(204);
         }
 
         [HttpPost]
