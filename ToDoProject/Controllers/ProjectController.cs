@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using TodoBusiness.Services;
 using TodoDatabase.Models;
 
-namespace ToDoProject.Controllers
+namespace TodoApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
