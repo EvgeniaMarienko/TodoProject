@@ -10,6 +10,7 @@ using TodoBuisness.Services;
 using TodoDataBase;
 using TodoDataBase.Models;
 using ToDoProject.Controllers;
+using ToDoProject.Middlewares;
 
 namespace ToDoProject
 {
@@ -28,6 +29,8 @@ namespace ToDoProject
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<TodoContext>(options=>options.UseSqlServer(connection));
             services.AddTransient<ITodoItemService, TodoItemService>();
+            services.AddTransient<IProjectService, ProjectService>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -49,6 +52,7 @@ namespace ToDoProject
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

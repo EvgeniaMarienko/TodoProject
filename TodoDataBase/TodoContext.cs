@@ -17,7 +17,9 @@ namespace TodoDataBase
         {
         }
 
-        public DbSet<TodoItemModel> TodoItems { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -3,42 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TodoDataBase;
 
 namespace TodoDataBase.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    partial class TodoContextModelSnapshot : ModelSnapshot
+    [Migration("20201009111407_RenameModels")]
+    partial class RenameModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("TodoDataBase.Models.Employee", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Employees");
-                });
 
             modelBuilder.Entity("TodoDataBase.Models.Project", b =>
                 {
@@ -75,9 +56,6 @@ namespace TodoDataBase.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsComplete")
                         .HasColumnType("bit");
 
@@ -91,8 +69,6 @@ namespace TodoDataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
-
                     b.HasIndex("ProjectId");
 
                     b.ToTable("TodoItems");
@@ -100,10 +76,6 @@ namespace TodoDataBase.Migrations
 
             modelBuilder.Entity("TodoDataBase.Models.TodoItem", b =>
                 {
-                    b.HasOne("TodoDataBase.Models.Employee", "Employee")
-                        .WithMany("TodoItems")
-                        .HasForeignKey("EmployeeId");
-
                     b.HasOne("TodoDataBase.Models.Project", "Project")
                         .WithMany("TodoItems")
                         .HasForeignKey("ProjectId")
