@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using TodoBuisness.Exceptions;
 using TodoBuisness.ViewModels;
@@ -26,7 +24,7 @@ namespace TodoBuisness.Services
 
         public async Task Delete(int id)
         {
-            if(!(await (IsEmployee(id))))
+            if (!(await (IsEmployee(id))))
             {
                 throw new EmployeeNotFoundException(id);
             }
@@ -46,7 +44,7 @@ namespace TodoBuisness.Services
         public async Task<Employee> GetById(int id)
         {
             var result = await _todoContext.Employees.FindAsync(id);
-            if(result == null)
+            if (result == null)
             {
                 throw new EmployeeNotFoundException(id);
             }
@@ -59,7 +57,7 @@ namespace TodoBuisness.Services
             {
                 throw new EmployeeBadRequestException();
             }
-            if(!(await IsEmployee(id)))
+            if (!(await IsEmployee(id)))
             {
                 throw new EmployeeNotFoundException(id);
             }
@@ -79,11 +77,11 @@ namespace TodoBuisness.Services
         {
             var employee = await _todoContext.Employees.FindAsync(model.EmployeeId);
             var task = await _todoContext.TodoItems.FindAsync(model.TaskId);
-            if(employee == null)
+            if (employee == null)
             {
                 throw new EmployeeNotFoundException(model.EmployeeId);
             }
-            if(task == null)
+            if (task == null)
             {
                 throw new TodoItemNotFoundException(model.TaskId);
             }

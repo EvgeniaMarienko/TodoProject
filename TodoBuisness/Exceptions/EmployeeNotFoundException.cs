@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TodoBuisness.Exceptions
+﻿namespace TodoBuisness.Exceptions
 {
     public class EmployeeNotFoundException : NotFoundException
     {

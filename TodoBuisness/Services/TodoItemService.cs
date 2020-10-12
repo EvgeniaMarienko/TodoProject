@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TodoBuisness.Exceptions;
 using TodoDataBase;

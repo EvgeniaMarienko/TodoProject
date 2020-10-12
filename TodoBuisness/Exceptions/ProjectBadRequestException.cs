@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TodoBuisness.Exceptions
+﻿namespace TodoBuisness.Exceptions
 {
-    public class ProjectBadRequestException:BadRequestException
+    public class ProjectBadRequestException : BadRequestException
     {
         public ProjectBadRequestException() : base("Incorrect data")
         {
