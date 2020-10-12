@@ -1,13 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Text;
 using TodoDataBase.Models;
 
 namespace TodoDataBase
 {
-    public class TodoContext:DbContext
+    public class TodoContext : DbContext
     {
         public TodoContext()
         {
