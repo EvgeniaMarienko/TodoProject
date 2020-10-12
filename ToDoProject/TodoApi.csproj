@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TodoBuisness\TodoBusiness.csproj" />
-    <ProjectReference Include="..\TodoDataBase\TodoDataBase.csproj" />
+    <ProjectReference Include="..\TodoDataBase\TodoDatabase.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

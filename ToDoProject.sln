@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApi", "ToDoProject\Todo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoBusiness", "TodoBuisness\TodoBusiness.csproj", "{EB6EF045-18BA-4B70-A136-547B4F846230}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoDataBase", "TodoDataBase\TodoDataBase.csproj", "{1E59ACC0-B284-4469-B0C6-6E3080FB3055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoDatabase", "TodoDataBase\TodoDatabase.csproj", "{1E59ACC0-B284-4469-B0C6-6E3080FB3055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
