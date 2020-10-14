@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoBuisness.Services;
+using TodoBusiness.ViewModels;
 using TodoDataBase.Models;
 
 namespace ToDoProject.Controllers
@@ -47,6 +48,12 @@ namespace ToDoProject.Controllers
         {
             await _projectService.Update(id, project);
             return StatusCode(200);
+        }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<ActionResult<ProjectTasksModel>> GetProjectTasks(int id)
+        {
+            return await _projectService.GetAllProjectTasks(id);
         }
     }
 }

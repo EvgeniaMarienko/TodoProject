@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TodoBuisness.Exceptions;
+using TodoBusiness.ViewModels;
 using TodoDataBase;
 using TodoDataBase.Models;
 
@@ -69,6 +71,23 @@ namespace TodoBuisness.Services
         public async Task<bool> IsProject(int id)
         {
             return await _todoContext.Projects.AnyAsync(p => p.Id == id);
+        }
+
+        public async Task<ProjectTasksModel> GetAllProjectTasks(int id)
+        {
+            var project = _todoContext.Projects.Where(i => i.Id == id);
+            if (project == null)
+            {
+                throw new ProjectNotFoundException(id);
+            }
+            var tasks = await project.Include(t => t.TodoItems).SelectMany(t => t.TodoItems).ToListAsync();
+            return new ProjectTasksModel
+            {
+                ProjectName = (await project.FirstOrDefaultAsync()).Name,
+                Tasks = tasks
+            };
+
+
         }
     }
 }
