@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace TodoDatabase.Models
 {
@@ -11,10 +12,12 @@ namespace TodoDatabase.Models
         [MaxLength(1000)]
         public string Description { get; set; }
         public bool IsComplete { get; set; }
-        public int ProjectId { get; set; }
+        public int ProjectId { get; set; } 
+        [JsonIgnore]
         public Project Project { get; set; }
         public int? EmployeeId { get; set; }
+        [JsonIgnore]
         public Employee Employee { get; set; }
-
+ 
     }
 }

@@ -28,7 +28,15 @@ namespace TodoWeb
             services.AddTransient<ITodoItemService, TodoItemService>();
             services.AddTransient<IProjectService, ProjectService>();
             services.AddTransient<IEmployeeService, EmployeeService>();
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // чтобы не зацикливалось в бесколнечность
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // чтобы не отображались null (не обязательно, но так лучше выглядит)
+                }
+            );
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

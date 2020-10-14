@@ -75,17 +75,14 @@ namespace TodoBusiness.Services
 
         public async Task<ProjectTasksModel> GetAllProjectTasks(int id)
         {
-            var project = _todoContext.Projects.Where(i => i.Id == id);
+
+            var project = await _todoContext.Projects.FindAsync(id);
             if (project == null)
             {
                 throw new ProjectNotFoundException(id);
             }
-            var tasks = await project.Include(t => t.TodoItems).SelectMany(t => t.TodoItems).ToListAsync();
-            return new ProjectTasksModel
-            {
-                ProjectName = (await project.FirstOrDefaultAsync()).Name,
-                Tasks = tasks
-            };
+            var tasks = await _todoContext.TodoItems.Where(i => i.ProjectId == id).ToListAsync();
+            return new ProjectTasksModel { ProjectName = project.Name, Tasks = tasks };
         }
     }
 }
