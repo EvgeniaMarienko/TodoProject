@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TodoBuisness.Exceptions;
-using TodoBuisness.ViewModels;
-using TodoDataBase;
-using TodoDataBase.Models;
+using TodoBusiness.Exceptions;
+using TodoBusiness.ViewModels;
+using TodoDatabase;
+using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public class EmployeeService : IEmployeeService
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TodoBuisness.Exceptions;
-using TodoDataBase;
-using TodoDataBase.Models;
+using TodoBusiness.Exceptions;
+using TodoDatabase;
+using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public class TodoItemService : ITodoItemService
     {

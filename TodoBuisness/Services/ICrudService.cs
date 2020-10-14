@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public interface ICrudService<T>
     {

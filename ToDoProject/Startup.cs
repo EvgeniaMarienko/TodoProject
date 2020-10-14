@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TodoBuisness.Services;
-using TodoDataBase;
-using ToDoProject.Middlewares;
+using TodoBusiness.Services;
+using TodoDatabase;
+using TodoWeb.Middlewares;
 
-namespace ToDoProject
+namespace TodoWeb
 {
     public class Startup
     {

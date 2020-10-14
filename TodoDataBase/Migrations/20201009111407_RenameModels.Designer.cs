@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TodoDataBase;
+using TodoDatabase;
 
-namespace TodoDataBase.Migrations
+namespace TodoDatabase.Migrations
 {
     [DbContext(typeof(TodoContext))]
     [Migration("20201009111407_RenameModels")]

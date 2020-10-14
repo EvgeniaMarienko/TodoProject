@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace TodoDataBase.Migrations
+namespace TodoDatabase.Migrations
 {
     public partial class RenameModels : Migration
     {

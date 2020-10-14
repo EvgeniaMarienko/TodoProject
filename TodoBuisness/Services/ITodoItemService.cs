@@ -1,6 +1,6 @@
-﻿using TodoDataBase.Models;
+﻿using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public interface ITodoItemService : ICrudService<TodoItem>
     {

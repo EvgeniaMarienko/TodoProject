@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TodoBuisness.Exceptions;
 using TodoBusiness.ViewModels;
-using TodoDataBase;
-using TodoDataBase.Models;
+using TodoDataиase;
+using TodoBusiness.Exceptions;
+using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public class ProjectService : IProjectService
     {

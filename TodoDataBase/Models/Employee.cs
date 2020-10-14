@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TodoDataBase.Models
+namespace TodoDatabase.Models
 {
     public class Employee
     {

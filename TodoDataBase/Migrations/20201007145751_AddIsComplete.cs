@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TodoDataBase.Migrations
+namespace TodoDatabase.Migrations
 {
     public partial class AddIsComplete : Migration
     {

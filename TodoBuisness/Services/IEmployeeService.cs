@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using TodoBuisness.ViewModels;
-using TodoDataBase.Models;
+using TodoBusiness.ViewModels;
+using TodoDatabase.Models;
 
-namespace TodoBuisness.Services
+namespace TodoBusiness.Services
 {
     public interface IEmployeeService : ICrudService<Employee>
     {

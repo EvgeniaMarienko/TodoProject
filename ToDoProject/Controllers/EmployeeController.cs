@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TodoBuisness.Services;
-using TodoBuisness.ViewModels;
-using TodoDataBase.Models;
+using TodoBusiness.Services;
+using TodoBusiness.ViewModels;
+using TodoDatabase.Models;
 
-namespace ToDoProject.Controllers
+namespace TodoWeb.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
