@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TodoBusiness.ViewModels;
-using TodoDataиase;
+using TodoDatabase;
 using TodoBusiness.Exceptions;
 using TodoDatabase.Models;
 
@@ -86,8 +86,6 @@ namespace TodoBusiness.Services
                 ProjectName = (await project.FirstOrDefaultAsync()).Name,
                 Tasks = tasks
             };
-
-
         }
     }
 }

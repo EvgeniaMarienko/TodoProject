@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoBusiness.ViewModels;
-using TodoDataBase.Models;
+using TodoDatabase.Models;
 using TodoBusiness.Services;
 
 namespace TodoWeb.Controllers

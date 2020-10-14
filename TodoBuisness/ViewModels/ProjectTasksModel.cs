@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TodoDataBase.Models;
+using TodoDatabase.Models;
 
 namespace TodoBusiness.ViewModels
 {
