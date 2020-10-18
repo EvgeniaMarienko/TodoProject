@@ -12,9 +12,9 @@ namespace TodoWeb.Controllers
     public class TodoItemsController : ControllerBase
     {
         private ITodoItemService _todoItemService;
-        public TodoItemsController(ITodoItemService context)
+        public TodoItemsController(ITodoItemService todoItemService)
         {
-            _todoItemService = context;
+            _todoItemService = todoItemService;
         }
 
         [HttpGet]

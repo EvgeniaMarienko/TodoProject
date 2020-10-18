@@ -6,6 +6,6 @@ namespace TodoBusiness.Services
 {
     public interface IUserService : ICrudService<User>
     {
-        Task AddEmployeeToTask(AddUserToTaskModel model);
+        Task AddUserToTask(AddUserToTaskModel model);
     }
 }

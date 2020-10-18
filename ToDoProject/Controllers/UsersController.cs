@@ -12,51 +12,51 @@ namespace TodoWeb.Controllers
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        private IUserService _employeeService;
-        public UsersController(IUserService employeeService)
+        private IUserService _userService;
+        public UsersController(IUserService userService)
         {
-            _employeeService = employeeService;
+            _userService = userService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<TodoResponseModel<IEnumerable<User>>>> GetAllEmployees()
+        public async Task<ActionResult<TodoResponseModel<IEnumerable<User>>>> GetAllUsers()
         {
-            var result = await _employeeService.GetAll();
+            var result = await _userService.GetAll();
             return TodoResponseModel<IEnumerable<User>>.Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoResponseModel<User>>> GetEmployeeById(int id)
+        public async Task<ActionResult<TodoResponseModel<User>>> GetUserById(int id)
         {
-            var result = await _employeeService.GetById(id);
+            var result = await _userService.GetById(id);
             return TodoResponseModel<User>.Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TodoResponseModel<User>>> DeleteEmployee(int id)
+        public async Task<ActionResult<TodoResponseModel<User>>> DeleteUser(int id)
         {
-            var result = await _employeeService.Delete(id);
+            var result = await _userService.Delete(id);
             return StatusCode(204, TodoResponseModel<User>.Ok(result));
         }
 
         [HttpPost]
-        public async Task<ActionResult<TodoResponseModel<User>>> CreateEmployee(User employee)
+        public async Task<ActionResult<TodoResponseModel<User>>> CreateUser(User user)
         {
-            var result = await _employeeService.Add(employee);
+            var result = await _userService.Add(user);
             return StatusCode(201, TodoResponseModel<User>.Ok(result));
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<TodoResponseModel<User>>> UpdateEmployee(int id, User employee)
+        public async Task<ActionResult<TodoResponseModel<User>>> UpdateUser(int id, User user)
         {
-            var result = await _employeeService.Update(id, employee);
+            var result = await _userService.Update(id, user);
             return TodoResponseModel<User>.Ok(result);
         }
 
         [HttpPost("[action]")]
-        public async Task<ActionResult> AddEmployeeToTask(AddUserToTaskModel model)
+        public async Task<ActionResult> AddUserToTask(AddUserToTaskModel model)
         {
-            await _employeeService.AddEmployeeToTask(model);
+            await _userService.AddUserToTask(model);
             return StatusCode(204);
         }
     }

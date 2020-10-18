@@ -16,18 +16,18 @@ namespace TodoBusiness.Services
             _todoContext = todoContext;
         }
 
-        public async Task<User> Add(User employee)
+        public async Task<User> Add(User user)
         {
-            _todoContext.Users.Add(employee);
+            _todoContext.Users.Add(user);
             await _todoContext.SaveChangesAsync();
-            return employee;
+            return user;
         }
 
         public async Task<User> Delete(int id)
         {
-            if (!(await (IsEmployee(id))))
+            if (!(await (IsUser(id))))
             {
-                throw new EmployeeNotFoundException(id);
+                throw new UserNotFoundException(id);
             }
             else
             {
@@ -48,47 +48,47 @@ namespace TodoBusiness.Services
             var result = await _todoContext.Users.FindAsync(id);
             if (result == null)
             {
-                throw new EmployeeNotFoundException(id);
+                throw new UserNotFoundException(id);
             }
             return result;
         }
 
-        public async Task<User> Update(int id, User employee)
+        public async Task<User> Update(int id, User user)
         {
-            if (employee.Id != id)
+            if (user.Id != id)
             {
-                throw new EmployeeBadRequestException();
+                throw new UserBadRequestException();
             }
-            if (!(await IsEmployee(id)))
+            if (!(await IsUser(id)))
             {
-                throw new EmployeeNotFoundException(id);
+                throw new UserNotFoundException(id);
             }
             else
             {
-                _todoContext.Users.Update(employee);
+                _todoContext.Users.Update(user);
                 await _todoContext.SaveChangesAsync();
-                return employee;
+                return user;
             }
         }
 
-        public async Task<bool> IsEmployee(int id)
+        public async Task<bool> IsUser(int id)
         {
             return await _todoContext.Users.AnyAsync(e => e.Id == id);
         }
 
-        public async Task AddEmployeeToTask(AddUserToTaskModel model)
+        public async Task AddUserToTask(AddUserToTaskModel model)
         {
-            var employee = await _todoContext.Users.FindAsync(model.UserId);
+            var user = await _todoContext.Users.FindAsync(model.UserId);
             var task = await _todoContext.TodoItems.FindAsync(model.TaskId);
-            if (employee == null)
+            if (user == null)
             {
-                throw new EmployeeNotFoundException(model.UserId);
+                throw new UserNotFoundException(model.UserId);
             }
             if (task == null)
             {
                 throw new TodoItemNotFoundException(model.TaskId);
             }
-            task.UserId = employee.Id;
+            task.UserId = user.Id;
             await _todoContext.SaveChangesAsync();
         }
     }
