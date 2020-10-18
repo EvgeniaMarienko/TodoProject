@@ -39,11 +39,11 @@ namespace TodoWeb.Controllers
             return StatusCode(204, TodoResponseModel<User>.Ok(result));
         }
 
-        [HttpPost]
-        public async Task<ActionResult<TodoResponseModel<User>>> CreateUser(User user)
+        [HttpPost("register")] 
+        public async Task<ActionResult<TodoResponseModel<RegistrationViewModel>>> RegisterUser(RegistrationViewModel model)
         {
-            var result = await _userService.Add(user);
-            return StatusCode(201, TodoResponseModel<User>.Ok(result));
+            await _userService.Add(model);
+            return StatusCode(201, TodoResponseModel<RegistrationViewModel>.Ok(model));
         }
 
         [HttpPut("{id}")]

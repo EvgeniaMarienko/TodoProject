@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Shared.Extensions;
 using Shared.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,11 +17,20 @@ namespace TodoBusiness.Services
             _todoContext = todoContext;
         }
 
-        public async Task<User> Add(User user)
+        public async Task Add(RegistrationViewModel model)
         {
+            var isUserFound = await _todoContext.Users.AnyAsync(x => x.Email == model.Email);
+            if (isUserFound)
+                throw new UserAlreadyExistsException(model.Email);
+
+            CreatePasswordHash(model.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            var user = model.ToModel();
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+
             _todoContext.Users.Add(user);
-            await _todoContext.SaveChangesAsync();
-            return user;
+            _todoContext.SaveChanges();
         }
 
         public async Task<User> Delete(int id)
@@ -90,6 +100,45 @@ namespace TodoBusiness.Services
             }
             task.UserId = user.Id;
             await _todoContext.SaveChangesAsync();
+        }
+
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
+        }
+
+        private static (byte[],byte[]) CreatePasswordHash(string password)
+        {
+            byte[] salt, hash;
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                salt = hmac.Key;
+                hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
+            return (salt, hash);
+        }
+
+        private static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
+        {            
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != storedHash[i]) return false;
+                }
+            }
+
+            return true;
+        }
+
+        public Task<User> Add(User entity)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

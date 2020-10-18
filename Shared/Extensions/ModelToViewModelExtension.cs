@@ -16,5 +16,16 @@ namespace Shared.Extensions
             };
             return result;
         }
+
+        public static User ToModel(this RegistrationViewModel model)
+        {
+            var result = new User
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email
+            };
+            return result;
+        }
     }
 }
