@@ -15,19 +15,21 @@ namespace TodoBusiness.Services
         {
             _todoContext = context;
         }
-        public async Task Add(TodoItem todoItem)
+        public async Task<TodoItem> Add(TodoItem todoItem)
         {
             _todoContext.Add(todoItem);
             await _todoContext.SaveChangesAsync();
+            return todoItem;
         }
 
-        public async Task Delete(int id)
+        public async Task<TodoItem> Delete(int id)
         {
             if (await IsItem(id))
             {
                 var item = await GetById(id);
                 _todoContext.TodoItems.Remove(item);
                 await _todoContext.SaveChangesAsync();
+                return item;
             }
             else
                 throw new TodoItemNotFoundException(id);
@@ -54,7 +56,7 @@ namespace TodoBusiness.Services
             return await _todoContext.TodoItems.AnyAsync(i => i.Id == id);
         }
 
-        public async Task Update(int id, TodoItem todoItem)
+        public async Task<TodoItem> Update(int id, TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {
@@ -66,6 +68,7 @@ namespace TodoBusiness.Services
             }
             _todoContext.TodoItems.Update(todoItem);
             await _todoContext.SaveChangesAsync();
+            return todoItem;
         }
     }
 }

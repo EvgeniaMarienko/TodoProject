@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TodoBusiness.ViewModels;
 using TodoDatabase.Models;
 using TodoBusiness.Services;
+using TodoWeb.Models;
 
 namespace TodoWeb.Controllers
 {
@@ -18,36 +19,38 @@ namespace TodoWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Project>> GetAllProjects()
+        public async Task<ActionResult<TodoResponseModel<IEnumerable<Project>>>> GetAllProjects()
         {
-            return await _projectService.GetAll();
+            var result= await _projectService.GetAll();
+            return TodoResponseModel<IEnumerable<Project>>.Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Project>> GetProjectById(int id)
+        public async Task<ActionResult<TodoResponseModel<Project>>> GetProjectById(int id)
         {
-            return await _projectService.GetById(id);
+            var result= await _projectService.GetById(id);
+            return TodoResponseModel<Project>.Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteProject(int id)
+        public async Task<ActionResult<TodoResponseModel<Project>>> DeleteProject(int id)
         {
-            await _projectService.Delete(id);
-            return StatusCode(204);
+            var result = await _projectService.Delete(id);
+            return StatusCode(204, TodoResponseModel<Project>.Ok(result));
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateProject(Project project)
+        public async Task<ActionResult<TodoResponseModel<Project>>> CreateProject(Project project)
         {
-            await _projectService.Add(project);
-            return StatusCode(201);
+            var result = await _projectService.Add(project);
+            return StatusCode(201, TodoResponseModel<Project>.Ok(result));
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateProject(int id, Project project)
+        public async Task<ActionResult<TodoResponseModel<Project>>> UpdateProject(int id, Project project)
         {
-            await _projectService.Update(id, project);
-            return StatusCode(200);
+            var result = await _projectService.Update(id, project);
+            return TodoResponseModel<Project>.Ok(result);
         }
 
         [HttpGet("[action]/{id}")]

@@ -16,13 +16,14 @@ namespace TodoBusiness.Services
         {
             _todoContext = todoContext;
         }
-        public async Task Add(Project project)
+        public async Task<Project> Add(Project project)
         {
             _todoContext.Projects.Add(project);
             await _todoContext.SaveChangesAsync();
+            return project;
         }
 
-        public async Task Delete(int id)
+        public async Task<Project> Delete(int id)
         {
             if (!(await IsProject(id)))
             {
@@ -33,6 +34,7 @@ namespace TodoBusiness.Services
                 var result = await GetById(id);
                 _todoContext.Projects.Remove(result);
                 await _todoContext.SaveChangesAsync();
+                return result;
             }
         }
 
@@ -51,7 +53,7 @@ namespace TodoBusiness.Services
             return result;
         }
 
-        public async Task Update(int id, Project project)
+        public async Task<Project> Update(int id, Project project)
         {
             if (project.Id != id)
             {
@@ -65,6 +67,7 @@ namespace TodoBusiness.Services
             {
                 _todoContext.Projects.Update(project);
                 await _todoContext.SaveChangesAsync();
+                return project;
             }
         }
 

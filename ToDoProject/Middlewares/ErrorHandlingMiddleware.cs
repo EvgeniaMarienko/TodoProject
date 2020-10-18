@@ -4,6 +4,7 @@ using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TodoBusiness.Exceptions;
+using TodoWeb.Models;
 
 namespace TodoWeb.Middlewares
 {
@@ -42,7 +43,8 @@ namespace TodoWeb.Middlewares
                 statusCode = HttpStatusCode.InternalServerError;
                 message = exception.Message;
             }
-            var result = JsonSerializer.Serialize(new { ErrorMessage = message, StatusCode = statusCode });
+            var responseModel = new ErrorResponseModel { ErrorMessage = message, StatusCode = statusCode };
+            var result = JsonSerializer.Serialize(TodoResponseModel<ErrorResponseModel>.Fail(responseModel));
             context.Response.StatusCode = (int)statusCode;
             context.Response.ContentType = "application/json";
             return context.Response.WriteAsync(result);

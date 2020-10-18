@@ -6,9 +6,9 @@ namespace TodoBusiness.Services
     public interface ICrudService<T>
     {
         Task<IEnumerable<T>> GetAll();
-        Task Add(T entity);
-        Task Delete(int id);
-        Task Update(int id, T entity);
+        Task<T> Add(T entity);
+        Task<T> Delete(int id);
+        Task<T> Update(int id, T entity);
         Task<T> GetById(int id);
     }
 }

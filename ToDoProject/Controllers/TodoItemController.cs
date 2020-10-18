@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoBusiness.Services;
 using TodoDatabase.Models;
+using TodoWeb.Models;
 
 namespace TodoWeb.Controllers
 {
@@ -17,38 +18,38 @@ namespace TodoWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<TodoItem>> GetAllTasks()
+        public async Task<ActionResult<TodoResponseModel<IEnumerable<TodoItem>>>> GetAllTasks()
         {
             var result = await _todoItemService.GetAll();
-            return result;
+            return TodoResponseModel<IEnumerable<TodoItem>>.Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItem>> GetTaskById(int id)
+        public async Task<ActionResult<TodoResponseModel<TodoItem>>> GetTaskById(int id)
         {
             var result = await _todoItemService.GetById(id);
-            return result;
+            return TodoResponseModel<TodoItem>.Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTask(int id)
+        public async Task<ActionResult<TodoResponseModel<TodoItem>>> DeleteTask(int id)
         {
-            await _todoItemService.Delete(id);
-            return StatusCode(204);
+            var result = await _todoItemService.Delete(id);
+            return StatusCode(204, TodoResponseModel<TodoItem>.Ok(result));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTask(int id, TodoItem todoItem)
+        public async Task<ActionResult<TodoResponseModel<TodoItem>>> UpdateTask(int id, TodoItem todoItem)
         {
-            await _todoItemService.Update(id, todoItem);
-            return StatusCode(204);
+            var result = await _todoItemService.Update(id, todoItem);
+            return TodoResponseModel<TodoItem>.Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTask(TodoItem todoItem)
+        public async Task<ActionResult<TodoResponseModel<TodoItem>>> CreateTask(TodoItem todoItem)
         {
-            await _todoItemService.Add(todoItem);
-            return StatusCode(201);
+            var result = await _todoItemService.Add(todoItem);
+            return StatusCode(201, TodoResponseModel<TodoItem>.Ok(result));
         }
 
 
