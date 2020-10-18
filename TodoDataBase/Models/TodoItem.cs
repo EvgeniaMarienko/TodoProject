@@ -12,7 +12,7 @@ namespace TodoDatabase.Models
         [MaxLength(1000)]
         public string Description { get; set; }
         public bool IsComplete { get; set; }
-        public int ProjectId { get; set; } 
+        public int ProjectId { get; set; }
         [JsonIgnore]
         public Project Project { get; set; }
         public int? UserId { get; set; }

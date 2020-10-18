@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Shared.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TodoBusiness.Exceptions;
 using TodoBusiness.ViewModels;
 using TodoDatabase;
-using TodoBusiness.Exceptions;
 using TodoDatabase.Models;
-using Shared.Extensions;
 
 namespace TodoBusiness.Services
 {

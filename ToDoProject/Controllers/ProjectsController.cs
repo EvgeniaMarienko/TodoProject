@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TodoBusiness.Services;
 using TodoBusiness.ViewModels;
 using TodoDatabase.Models;
-using TodoBusiness.Services;
 using TodoWeb.Models;
 
 namespace TodoWeb.Controllers
@@ -21,14 +21,14 @@ namespace TodoWeb.Controllers
         [HttpGet]
         public async Task<ActionResult<TodoResponseModel<IEnumerable<Project>>>> GetAllProjects()
         {
-            var result= await _projectService.GetAll();
+            var result = await _projectService.GetAll();
             return TodoResponseModel<IEnumerable<Project>>.Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoResponseModel<Project>>> GetProjectById(int id)
         {
-            var result= await _projectService.GetById(id);
+            var result = await _projectService.GetById(id);
             return TodoResponseModel<Project>.Ok(result);
         }
 
