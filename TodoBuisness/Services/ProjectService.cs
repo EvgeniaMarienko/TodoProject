@@ -76,7 +76,7 @@ namespace TodoBusiness.Services
             return await _todoContext.Projects.AnyAsync(p => p.Id == id);
         }
 
-        public async Task<ProjectTasksModel> GetAllProjectTasks(int id)
+        public async Task<IEnumerable<ProjectTasksModel>> GetAllProjectTasks(int id)
         {
 
             var project = await _todoContext.Projects.FindAsync(id);
@@ -85,7 +85,12 @@ namespace TodoBusiness.Services
                 throw new ProjectNotFoundException(id);
             }
             var tasks = await _todoContext.TodoItems.Where(i => i.ProjectId == id).ToListAsync();
-            return new ProjectTasksModel { ProjectName = project.Name, Tasks = tasks };
+            var result = tasks.GroupBy(g=>g.Status).Select(g => new ProjectTasksModel
+            {
+                StatusName = g.Key.ToString(),
+                Tasks = g.ToList()
+            });                
+            return result;
         }
     }
 }

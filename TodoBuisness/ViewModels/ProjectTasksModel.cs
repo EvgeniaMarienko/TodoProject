@@ -5,7 +5,7 @@ namespace TodoBusiness.ViewModels
 {
     public class ProjectTasksModel
     {
-        public string ProjectName { get; set; }
+        public string StatusName { get; set; }
         public List<TodoItem> Tasks { get; set; }
     }
 }
