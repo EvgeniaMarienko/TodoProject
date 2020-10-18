@@ -6,6 +6,7 @@ using TodoBusiness.ViewModels;
 using TodoDatabase;
 using TodoBusiness.Exceptions;
 using TodoDatabase.Models;
+using Shared.Extensions;
 
 namespace TodoBusiness.Services
 {
@@ -85,11 +86,11 @@ namespace TodoBusiness.Services
                 throw new ProjectNotFoundException(id);
             }
             var tasks = await _todoContext.TodoItems.Where(i => i.ProjectId == id).ToListAsync();
-            var result = tasks.GroupBy(g=>g.Status).Select(g => new ProjectTasksModel
+            var result = tasks.GroupBy(g => g.Status).Select(g => new ProjectTasksModel
             {
                 StatusName = g.Key.ToString(),
-                Tasks = g.ToList()
-            });                
+                Tasks = g.Select(m => m.ToViewModel()).ToList()
+            });
             return result;
         }
     }
