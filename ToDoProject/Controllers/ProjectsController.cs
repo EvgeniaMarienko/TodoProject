@@ -10,10 +10,10 @@ namespace TodoWeb.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProjectController : Controller
+    public class ProjectsController : Controller
     {
         public IProjectService _projectService;
-        public ProjectController(IProjectService projectService)
+        public ProjectsController(IProjectService projectService)
         {
             _projectService = projectService;
         }

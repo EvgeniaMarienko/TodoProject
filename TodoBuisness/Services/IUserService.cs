@@ -4,8 +4,8 @@ using TodoDatabase.Models;
 
 namespace TodoBusiness.Services
 {
-    public interface IEmployeeService : ICrudService<Employee>
+    public interface IUserService : ICrudService<User>
     {
-        Task AddEmployeeToTask(AddEmployeeToTaskModel model);
+        Task AddEmployeeToTask(AddUserToTaskModel model);
     }
 }

@@ -9,10 +9,10 @@ namespace TodoWeb.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TodoItemController : ControllerBase
+    public class TodoItemsController : ControllerBase
     {
         private ITodoItemService _todoItemService;
-        public TodoItemController(ITodoItemService context)
+        public TodoItemsController(ITodoItemService context)
         {
             _todoItemService = context;
         }

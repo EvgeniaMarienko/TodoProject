@@ -15,9 +15,9 @@ namespace TodoDatabase.Models
         public int ProjectId { get; set; } 
         [JsonIgnore]
         public Project Project { get; set; }
-        public int? EmployeeId { get; set; }
+        public int? UserId { get; set; }
         [JsonIgnore]
-        public Employee Employee { get; set; }
+        public User User { get; set; }
         public TodoItemStatuses Status { get; set; }
 
     }

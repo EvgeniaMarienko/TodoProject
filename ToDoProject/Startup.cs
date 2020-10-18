@@ -27,7 +27,7 @@ namespace TodoWeb
             services.AddDbContext<TodoContext>(options => options.UseSqlServer(connection));
             services.AddTransient<ITodoItemService, TodoItemService>();
             services.AddTransient<IProjectService, ProjectService>();
-            services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IUserService, UserService>();
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>

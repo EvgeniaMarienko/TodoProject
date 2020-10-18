@@ -2,10 +2,10 @@
 
 namespace TodoBusiness.ViewModels
 {
-    public class AddEmployeeToTaskModel
+    public class AddUserToTaskModel
     {
         [Required]
-        public int EmployeeId { get; set; }
+        public int UserId { get; set; }
         [Required]
         public int TaskId { get; set; }
     }
