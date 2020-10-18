@@ -1,7 +1,7 @@
-﻿using Shared.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace TodoBusiness.ViewModels
+
+namespace Shared.ViewModels
 {
     public class ProjectTasksModel
     {

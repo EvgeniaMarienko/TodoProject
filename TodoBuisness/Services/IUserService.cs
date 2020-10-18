@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using TodoBusiness.ViewModels;
+﻿using Shared.ViewModels;
+using System.Threading.Tasks;
 using TodoDatabase.Models;
 
 namespace TodoBusiness.Services

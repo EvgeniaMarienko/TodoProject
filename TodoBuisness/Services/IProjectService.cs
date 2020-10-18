@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Shared.ViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using TodoBusiness.ViewModels;
 using TodoDatabase.Models;
 
 namespace TodoBusiness.Services

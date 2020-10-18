@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TodoBusiness.ViewModels
+namespace Shared.ViewModels
 {
     public class AddUserToTaskModel
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shared.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoBusiness.Services;
-using TodoBusiness.ViewModels;
 using TodoDatabase.Models;
 using TodoWeb.Models;
 

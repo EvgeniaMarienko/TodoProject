@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Shared.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoBusiness.Exceptions;
-using TodoBusiness.ViewModels;
 using TodoDatabase;
 using TodoDatabase.Models;
 
