@@ -2,7 +2,7 @@
 
 namespace Shared.ViewModels
 {
-    public class AddUserToTaskModel
+    public class AddUserToTaskViewModel
     {
         [Required]
         public int UserId { get; set; }

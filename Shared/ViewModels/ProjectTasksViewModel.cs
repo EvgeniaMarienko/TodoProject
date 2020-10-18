@@ -3,7 +3,7 @@
 
 namespace Shared.ViewModels
 {
-    public class ProjectTasksModel
+    public class ProjectTasksViewModel
     {
         public string StatusName { get; set; }
         public List<TodoItemViewModel> Tasks { get; set; }

@@ -54,10 +54,10 @@ namespace TodoWeb.Controllers
         }
 
         [HttpGet("{id}/tasks")]
-        public async Task<ActionResult<TodoResponseModel<IEnumerable<ProjectTasksModel>>>> GetProjectTasks(int id)
+        public async Task<ActionResult<TodoResponseModel<IEnumerable<ProjectTasksViewModel>>>> GetProjectTasks(int id)
         {
             var result = await _projectService.GetAllProjectTasks(id);
-            return TodoResponseModel<IEnumerable<ProjectTasksModel>>.Ok(result);
+            return TodoResponseModel<IEnumerable<ProjectTasksViewModel>>.Ok(result);
         }
     }
 }

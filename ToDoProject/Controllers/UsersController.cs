@@ -54,7 +54,7 @@ namespace TodoWeb.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<ActionResult> AddUserToTask(AddUserToTaskModel model)
+        public async Task<ActionResult> AddUserToTask(AddUserToTaskViewModel model)
         {
             await _userService.AddUserToTask(model);
             return StatusCode(204);

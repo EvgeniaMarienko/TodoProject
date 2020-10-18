@@ -7,6 +7,6 @@ namespace TodoBusiness.Services
 {
     public interface IProjectService : ICrudService<Project>
     {
-        Task<IEnumerable<ProjectTasksModel>> GetAllProjectTasks(int id);
+        Task<IEnumerable<ProjectTasksViewModel>> GetAllProjectTasks(int id);
     }
 }

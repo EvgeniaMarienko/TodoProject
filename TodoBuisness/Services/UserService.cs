@@ -76,7 +76,7 @@ namespace TodoBusiness.Services
             return await _todoContext.Users.AnyAsync(e => e.Id == id);
         }
 
-        public async Task AddUserToTask(AddUserToTaskModel model)
+        public async Task AddUserToTask(AddUserToTaskViewModel model)
         {
             var user = await _todoContext.Users.FindAsync(model.UserId);
             var task = await _todoContext.TodoItems.FindAsync(model.TaskId);
