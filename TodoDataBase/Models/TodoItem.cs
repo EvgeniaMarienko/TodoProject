@@ -18,6 +18,7 @@ namespace TodoDatabase.Models
         public int? EmployeeId { get; set; }
         [JsonIgnore]
         public Employee Employee { get; set; }
- 
+        public TodoItemStatuses Status { get; set; }
+
     }
 }
